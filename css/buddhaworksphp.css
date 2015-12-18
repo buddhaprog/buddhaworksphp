@@ -86,3 +86,39 @@ body {
     padding-left: 0;
   }
 }
+#bg {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+#bg img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 50%;
+    min-height: 50%;
+}
+.textback{
+
+    color: #cccccc;
+    padding:20px;
+    border:2px solid black;
+    background:rgba(100,100,100, 0.00);
+    /*    background-color: black;
+            z-index: 0;
+            opacity: 0.75;
+            border-radius: 20px;*/
+
+}
+.landingPage{
+    text-align: center;
+    font-family: Papyrus, fantasy; 
+    font-size: 40px;
+    font-weight: bolder;
+    border-radius: 10px;
+}

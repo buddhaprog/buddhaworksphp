@@ -1,0 +1,242 @@
+
+
+#greenCircle{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+    background-color:green;
+
+}
+#greenCircle2{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+    background-color:lightgreen;
+
+}
+#greenCircle3{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+    background-color:darkgreen;
+
+}
+.redBox1{
+    width:200px;
+    height:200px;
+    background-color:red;
+    position:relative; 
+    margin:10px;
+}
+#blueCircle1{
+    width:200px;
+    height:200px;
+    border-radius: 100px;
+    background-color:blue;
+    margin:10px;
+}
+.redBox2{
+    width:100px;
+    height:100px;
+    background-color:red;
+    position:relative; 
+    margin:10px;
+}
+#greenCircle4{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:forestgreen;
+
+}
+#greenCircle5{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:limegreen;
+
+}
+#greenCircle6{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    background-color:teal;
+
+}
+#wrapper{
+    width: 500px;
+    margin:0 auto; 
+
+}
+.jqueryInput{
+    width:300px;
+    height:40px;
+    padding:5px;
+    border-radius: 5px;
+    border:1px solid grey;
+}
+#jqueryPWInput{
+    width:300px;
+    height:40px;
+    padding:5px;
+    border-radius: 5px;
+    border:1px solid grey;
+
+}
+#jqueryPWInputConfirm{
+    width:300px;
+    height:40px;
+    padding:5px;
+    border-radius: 5px;
+    border:1px solid grey;
+}
+label {
+    float:left;
+    width:200px;
+    padding-top:7px;
+}
+#jquerySubmitButton{
+    height:40px;
+    width:100px;
+    margin-left:200px;
+}
+#jQueryError{
+    color:red;
+    margin:10px;
+}
+#BlackBox1{
+    width:200px;
+    height:200px;
+    background-color:Black;
+    position:relative; 
+    margin:10px;
+}
+li {
+    float:left !important;
+    list-style: none;
+}
+#BlackBox2{
+    float:left;
+    width:200px;
+    height:200px;
+    background-color:Black;
+    position:relative; 
+    margin:10px;
+}
+#BlackBox3{
+    float:left;
+    width:200px;
+    height:200px;
+    background-color:Black;
+    position:relative; 
+    margin:10px;
+}
+#BlackBox4{
+    float:left;
+    width:200px;
+    height:200px;
+    background-color:Black;
+    position:relative; 
+    margin:10px;
+}
+#BlackBox4target{
+    float:left;
+    width:250px;
+    height:250px;
+    border:solid black;
+    position:relative; 
+    margin:10px;
+}
+
+
+.normalLi {
+    float: none !important;
+    list-style: square;
+    border: 3px solid black;
+    margin-bottom: 5px;
+}
+
+#codeplayermenubar{
+    width:100%;
+    height:50px;
+    background-color: #e0e0e0;
+    border-bottom:1px solid grey;
+    border-radius: 5px;
+}
+#wrapper2 {
+    margin:0;
+    padding:0;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+    font-weight: 300;
+    
+}
+#codeplayerlogo{
+    padding: 5px 0 0 20px;
+    font-weight: bold;
+    font-size: 120%;
+    float: left;
+}
+#buttonDiv{
+    float:right;
+    padding: 5px 10px 0 0;
+}
+#runCodePlayerButton{
+    font-size: 120%;
+     border-radius: 5px;
+     font-weight: bold;
+}
+#playerToggles{
+    float: none !important;
+    list-style: square;
+    margin-bottom: 5px;
+    padding-left: 350px;
+    padding-top:5px;
+    
+    
+    
+}
+#playerToggles li{
+     border:1px solid black;
+     padding:5px;
+     border-radius: 5px;
+/*     background-color: #606dff;*/
+}
+.clearMe{
+    clear:both;
+}
+.codeContainter{
+    background-color: #cccccc;
+    height:100%;
+    width:50%;
+    float:left;
+    padding-bottom: 25px;
+}
+.codeContainter textArea{
+    height:100%;
+    width:100%;
+    border: none;
+    border-right: 1px solid black;
+    font-family: monotype;
+    font-size: 90%;
+    padding:5px;
+}
+.codeLabel{
+    float:right;
+    padding-right: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#CSSContainer, #JSContainer{
+    display:none;
+}
+#resultFrame{
+    height:100%;
+    width:100%;
+    border: none;
+    border-right: 1px solid black;
+    background-color: white;
+    padding:5px;
+}
+.toggleLi {
+    
+}
