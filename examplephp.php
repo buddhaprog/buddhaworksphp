@@ -261,9 +261,6 @@ and open the template in the editor.
                     } else {
                         echo "mail not sent";
                     }
-                    echo "<br/>";
-
-                    echo "<br/>";
 
                     echo "<br/>";
                     echo "<hr/>";
@@ -271,73 +268,196 @@ and open the template in the editor.
 
                 </div>
                 <div class="col-lg-4">
-                    <h3></h3>
+                    <h3>Get/post/request Variables</h3>
+                    <p>if you type after examplephp.php the following "?name=guestFirst&surname=guestLast" it will appear in the array when you hit enter</p>
+
                     <?php
                     echo "<br/>";
-
+                    print_r($_GET);
                     echo "<br/>";
-
-                    echo "<br/>";
-
-                    echo "<br/>";
-                    echo "<hr/>";
                     ?>
 
+                    <?php
+                    if (isset($_REQUEST["submit"])) {
+                        if (isset($_REQUEST["name"])) {
+                            echo "Your name is " . $_REQUEST["name"];
+                        } else {
+                            echo "name doesn't exist";
+                        }
+                    } else {
+                        echo "submit doesn't exist. aka Please Enter a Name";
+                    }
+                    ?>
+                    <hr/>
+                    <form>
+                        <label for="name">Name</label>
+                        <input name="name" type="text" />
+                        <input type="submit" name="submit" value="Submit Your Name" />
+                    </form>
+                    <hr/>
+                    <?php
+                    echo "<br/>";
+                    if (isset($_REQUEST["submit2"])) {
+                        if (isset($_REQUEST["name2"])) {
+                            echo "Your name is " . $_REQUEST["name2"];
+                        } else {
+                            echo "name doesn't exist";
+                        }
+                    } else {
+                        echo "submit doesn't exist. aka Please Enter a Name";
+                    }
+
+                    echo "<hr/>";
+                    ?>
+                    <form method="post">
+                        <label for="name2">Name2</label>
+                        <input name="name2" type="text" />
+                        <input type="submit" name="submit2" value="Submit Your Name2" />
+                    </form>
+                    <hr/>
+                    <h3></h3>
+                    <?php
+                    $names = array("Fred", "Rob", "Tom");
+                    $knowYou = 0;
+                    echo "<br/>";
+                    if (isset($_POST["submit3"])) {
+                        if (isset($_POST["name3"])) {
+                            foreach ($names as $name3) {
+                                if ($_POST["name3"] == $name3) {
+                                    echo "I know you. Your Name is " . $name3;
+                                    $knowYou = 1;
+                                }
+                            }
+                            if ($knowYou == 0)
+                                echo "Sorry, I don't know you.";
+                        }
+                    } else {
+                        echo "Please Enter a Name";
+                    }
+
+                    echo "<hr/>";
+                    ?>
+                    <form method="post">
+                        <label for="name3">Name3</label>
+                        <input name="name3" type="text" />
+                        <input type="submit" name="submit3" value="Submit Your Name3" />
+                    </form>
+                    <hr/>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <h3></h3>
+                <div class="col-lg-4" id="emailForm">
                     <?php
-                    echo "<br/>";
+                    $emailResult = "";
+                    $error = " ";
+                    if (isset($_POST["submitEmail"])) {
 
-                    echo "<br/>";
+                        if (!$_POST["firstName"]) {
+                            $error = "<br/> Please Enter your  First Name";
+                        }
+                        if (!$_POST["lastName"]) {
+                            $error.="<br/> Please Enter your  Last Name";
+                        }
+                        if (!$_POST["emailTo"]) {
+                            $error = $error . "<br/> Please Enter your emailTo";
+                        }
+                        if (!$_POST["emailFrom"]) {
+                            $error = $error . "<br/> Please Enter your emailFrom";
+                        }
+                        if (!$_POST["emailHeader"]) {
+                            $error = $error . "<br/> Please Enter emailHeader";
+                        }
+                        if (!$_POST["emailSubject"]) {
+                            $error = $error . "<br/> Please Enter emailSubject";
+                        }
+                        if (!$_POST["emailContent"]) {
+                            $error = $error . "<br/> Please Enter emailContent";
+                        }
+                        if ($_POST["emailTo"] != "" AND ! filter_var($_POST["emailTo"], FILTER_VALIDATE_EMAIL)) {
+                            $error = $error . "<br/> Please Enter a Valid emailTo";
+                        }
+                        if ($_POST["emailFrom"] != "" AND ! filter_var($_POST["emailFrom"], FILTER_VALIDATE_EMAIL)) {
+                            $error = $error . "<br/> Please Enter a Valid emailFrom";
+                        }
 
-                    echo "<br/>";
+                        if ($error != " ") {
+                            $emailResult = '<div class="alert alert-danger"><strong>Attention! There are errors in your form: </strong>' . $error . '</div>';
+                        } else {
 
-                    echo "<br/>";
-                    echo "<hr/>";
+                            if (mail($_POST["emailTo"], $_POST["emailSubject"], "Name:" . $_POST['firstName'] . " " . $_POST['firstName'] . " Email:" . $_POST['emailFrom'] . " Comment: " . $_POST['emailContent'] . " emailHeader: " . $_POST['emailHeader'])) {
+                                $emailResult = '<div class="alert alert-success">Email Submitted</div>';
+                            } else {
+                                $emailResult = '<div class="alert alert-danger">Email NOT Submitted</div>';
+                            }
+                        }
+                    }
                     ?>
+                    <h3>Email Form</h3>
+                    <h3>
+                        <?php echo $emailResult; ?>
+                    </h3>
+
+                    <form method="post" style="padding-bottom: 15px">
+                        <div class="form-group">
+                            <label for="firstName">First Name: </label>
+                            <input name="firstName" type="text" class="form-control" placeholder="FirstName" value="<?php echo$_POST['firstName'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name: </label>
+                            <input name="lastName" type="text" class="form-control" placeholder="lastName" value="<?php echo$_POST['lastName'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailTo">emailTo: </label>
+                            <input name="emailTo" type="email" class="form-control" placeholder="emailTo" required value="<?php echo$_POST['emailTo'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailFrom">emailFrom: </label>
+                            <input name="emailFrom" type="email" class="form-control" placeholder="emailFrom" required value="<?php echo$_POST['emailFrom'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailHeader">emailHeader: </label>
+                            <input name="emailHeader" type="text" class="form-control" placeholder="emailHeader" value="<?php echo$_POST['emailHeader'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailSubject">emailSubject: </label>
+                            <input name="emailSubject" type="text" class="form-control" placeholder="emailSubject" value="<?php echo$_POST['emailSubject'];?>"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailContent">emailContent: </label>
+                            <textarea name="emailContent" type="text" class="form-control" placeholder="emailContent" value="<?php echo$_POST['emailContent'];?>"></textarea>
+                        </div>
+                        <input type="submit" name="submitEmail" style="margin-bottom: 15px;" value="Send message!" class="btn btn-primary pull-right"/>
+
+                    </form>
+
 
                 </div>
-                <div class="col-lg-4">
-                    <h3></h3>
-                    <?php
-                    echo "<br/>";
+                <!--                <div class="col-lg-4">
+                                    <h3></h3>
+                <?php
+                echo "<br/>";
 
-                    echo "<br/>";
+                echo "<br/>";
 
-                    echo "<br/>";
+                echo "<br/>";
 
-                    echo "<br/>";
-                    echo "<hr/>";
-                    ?>
-
-                </div>
-                <div class="col-lg-4">
-                    <h3></h3>
-                    <?php
-                    echo "<br/>";
-
-                    echo "<br/>";
-
-                    echo "<br/>";
-
-                    echo "<br/>";
-                    echo "<hr/>";
-                    ?>
-
-                </div>
+                echo "<br/>";
+                echo "<hr/>";
+                ?>
+                
+                                </div>-->
             </div>
-            <!-- Site footer -->
-            <footer class="footer">
-                <p class="pull-right">&copy; 2015 Buddhaworks.org</p>
+        </div>
 
-            </footer>
+        <!-- Site footer -->
+        <footer class="footer">
+            <p class="pull-right">&copy; 2015 Buddhaworks.org</p>
+
+        </footer>
 
 
-            <script src="js/jquery-2.1.4.min.js"></script>
-            <script src="js/bootstrap.min.js" type="text/javascript"></script>
-            <script src="js/moment.js"></script>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/moment.js"></script>
     </body>
 </html>

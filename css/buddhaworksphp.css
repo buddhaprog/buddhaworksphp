@@ -122,3 +122,7 @@ body {
     font-weight: bolder;
     border-radius: 10px;
 }
+#emailForm{
+    border: 1px solid grey;
+    border-radius:5px;
+}
