@@ -96,11 +96,14 @@ and open the template in the editor.
                 event.preventDefault();
                 if ($("#city").val() != "") {
                     $('#weatherResult').slideToggle();
+                   
                     $.get("scraperphp.php?city=" + $("#city").val(), function (data) {
-
-
+                        console.log(data);
+                        if (data!= ""){
                         document.getElementById("weatherResult").innerHTML = (data);
-
+                    }else{
+                        document.getElementById("weatherResult").innerHTML = ("Sorry City Not Found");
+                    }
                     });
                 } else {
                     alert("please enter a city");
