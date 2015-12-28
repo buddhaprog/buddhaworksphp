@@ -21,8 +21,8 @@ and open the template in the editor.
                 <nav>
                     <ul class="nav nav-justified">
                         <li class="active"><a href="http://buddhaworks.org/buddhaworks/homepage">Buddhaworks</a></li>
-                        <li><a href="#">Link 1</a></li>
-                        <li><a href="#">Link 2</a></li>
+                         <li><a href="http://buddhaworks.org/examplephp.php">Php</a></li>
+                        <li><a href="http://buddhaworks.org/weatherphp.php">Php Weather Scraper</a></li>
                         <li><a href="#">Link 3</a></li>
                         <li><a href="#">Link 4</a></li>
                         <li><a href="#">Link 5</a></li>
@@ -432,7 +432,7 @@ and open the template in the editor.
 
 
                 </div>
-                <!--                <div class="col-lg-4">
+                                <div class="col-lg-4">
                                     <h3></h3>
                 <?php
                 echo "<br/>";
@@ -445,7 +445,7 @@ and open the template in the editor.
                 echo "<hr/>";
                 ?>
                 
-                                </div>-->
+                                </div>
             </div>
         </div>
 
