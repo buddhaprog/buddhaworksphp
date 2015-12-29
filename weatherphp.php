@@ -83,6 +83,9 @@ and open the template in the editor.
                     <div class="pull-right">
                         <p>&copy; 2015 Buddhaworks.org</p>
                     </div>
+                    <div class="pull-left">
+                        <p>Image credits<a href="http://www.stuckincustoms.com/" target="_blank"> Trey Ratcliff</a>    </p>
+                    </div>
                 </div>
 
             </div>
@@ -96,14 +99,15 @@ and open the template in the editor.
                 event.preventDefault();
                 if ($("#city").val() != "") {
                     $('#weatherResult').slideToggle();
-                   
+
                     $.get("scraperphp.php?city=" + $("#city").val(), function (data) {
                         console.log(data);
-                        if (data!= ""){
-                        document.getElementById("weatherResult").innerHTML = (data);
-                    }else{
-                        document.getElementById("weatherResult").innerHTML = ("Sorry City Not Found");
-                    }
+                        if (data != "") {
+                            document.getElementById("weatherResult").innerHTML = (data);
+                        } else {
+                            document.getElementById(
+                                    "weatherResult").innerHTML = ("Sorry City Not Found");
+                        }
                     });
                 } else {
                     alert("please enter a city");
@@ -113,7 +117,7 @@ and open the template in the editor.
                 console.log(pickimg());
                 var backimage = pickimg();
                 document.getElementById(
-                        "firstContentDiv").style.backgroundImage = ("url("+backimage+")");
+                        "firstContentDiv").style.backgroundImage = ("url(" + backimage + ")");
 
             });
 
